@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listen & Learn | Songs of Zion</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #38bdf8;
+            --dark-blue: #0284c7;
+            --black: #15191e;
+            --muted: #64748b;
+            --light: #f4f9fc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            color: var(--black);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            min-height: 75px;
+            padding: 12px 5%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            text-decoration: none;
+            color: var(--black);
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            display: block;
+            color: var(--dark-blue);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-blue);
+        }
+
+        .login-link {
+            border: 1px solid var(--blue);
+            border-radius: 25px;
+            padding: 10px 19px;
+        }
+
+        /* PAGE */
+        .page-heading {
+            padding: 28px 5% 18px;
+        }
+
+        .page-heading h1 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .page-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .learning-layout {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr) 190px;
+            gap: 18px;
+            padding: 0 5% 25px;
+            align-items: start;
+        }
+
+        .panel {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            min-width: 0;
+        }
+
+        .panel h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* LEFT PANEL */
+        .instrument-image {
+            width: 100%;
+            height: 115px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 17px;
+        }
+
+        .field-label {
+            display: block;
+            color: #475569;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            outline: none;
+            color: var(--black);
+        }
+
+        .instrument-note {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+            margin-top: 13px;
+        }
+
+        /* CENTRE PANEL */
+        .centre-panel {
+            padding: 20px;
+        }
+
+        .song-heading {
+            margin-bottom: 19px;
+        }
+
+        .song-number {
+            color: var(--dark-blue);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 7px;
+        }
+
+        .song-title {
+            font-size: 22px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            padding: 12px 15px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button.active {
+            color: var(--dark-blue);
+            border-bottom-color: var(--blue);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .content-heading {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        /* LYRICS */
+        .lyrics-box {
+            background: #f8fbfd;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 520px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 16px;
+            line-height: 2;
+            color: #273449;
+            font-family: inherit;
+        }
+
+        .audio-box {
+            margin-top: 17px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .audio-box p {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        /* KEYBOARD NOTES */
+        .notes-image-wrapper {
+            background: #f8fbfd;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .notes-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            max-height: 560px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        /* VIDEO */
+        .video-wrapper {
+            background: #111827;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-wrapper video {
+            display: block;
+            width: 100%;
+            max-height: 520px;
+            background: #000;
+        }
+
+        .video-caption {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        /* RIGHT PANEL */
+        .option-button {
+            width: 100%;
+            padding: 12px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .option-button:hover {
+            background: #eff9ff;
+            border-color: var(--blue);
+            color: var(--dark-blue);
+        }
+
+        .option-button i {
+            font-size: 17px;
+        }
+
+        .option-description {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin-top: 13px;
+        }
+
+        /* VIRTUAL PIANO */
+        .piano-panel {
+            margin: 0 5% 30px;
+            padding: 18px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .piano-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .piano-header h3 {
+            font-size: 16px;
+        }
+
+        .piano-header p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .piano {
+            width: 100%;
+            height: 155px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .piano-inner {
+            position: relative;
+            display: flex;
+            width: 940px;
+            height: 145px;
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+
+        .white-key {
+            position: relative;
+            flex: 0 0 47px;
+            height: 145px;
+            background: linear-gradient(to bottom, #ffffff, #eeeeee);
+            border: 1px solid #777;
+            border-radius: 0 0 3px 3px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 12px;
+            color: #222;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: inset 0 -3px 4px rgba(0, 0, 0, 0.12);
+        }
+
+        .white-key.active {
+            background: #bae6fd;
+        }
+
+        .black-key {
+            position: absolute;
+            top: 0;
+            width: 27px;
+            height: 100px;
+            transform: translateX(-50%);
+            z-index: 5;
+            background: linear-gradient(90deg,
+                    #080808,
+                    #333333 45%,
+                    #080808);
+            border: 1px solid #050505;
+            border-radius: 0 0 3px 3px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 9px;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .black-key.active {
+            background: linear-gradient(90deg,
+                    #0284c7,
+                    #38bdf8,
+                    #0284c7);
+        }
+
+        .piano-hint {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 14px;
+            padding: 23px;
+        }
+
+        .modal h3 {
+            margin-bottom: 12px;
+        }
+
+        .modal p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .modal-close {
+            background: var(--dark-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .learning-layout {
+                grid-template-columns: 190px minmax(0, 1fr);
+            }
+
+            .side-options {
+                grid-column: 1 / -1;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .side-options h3,
+            .side-options .option-description {
+                grid-column: 1 / -1;
+            }
+
+            .option-button {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .page-heading {
+                padding-top: 22px;
+            }
+
+            .learning-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .side-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .side-options h3,
+            .side-options .option-description {
+                grid-column: 1 / -1;
+            }
+
+            .song-title {
+                font-size: 19px;
+            }
+
+            .centre-panel {
+                padding: 15px;
+            }
+
+            .lyrics-box {
+                font-size: 15px;
+                padding: 14px;
+            }
+
+            .piano-panel {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            .piano-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            SONGS OF ZION
+            <span>KEYBOARD NOTES</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="songs.html">SONGS</a>
+            <a href="keyboard-notes.html">KEYBOARD NOTES</a>
+            <a href="listen-and-learn.html" class="active">LEARN</a>
+            <a href="#" class="login-link">LOGIN</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADING -->
+    <section class="page-heading">
+        <h1>Listen & Learn</h1>
+        <p>Learn your favourite worship songs with lyrics, keyboard notes and tutorial videos.</p>
+    </section>
+
+    <!-- MAIN LEARNING AREA -->
+    <main class="learning-layout">
+
+        <!-- LEFT: INSTRUMENT -->
+        <aside class="panel">
+            <h3><i class="bi bi-music-note-beamed"></i> Instrument</h3>
+
+            <img src="assets/images/keyboard.jpg" alt="Keyboard instrument" class="instrument-image">
+
+            <label class="field-label" for="instrumentSelect">Select Instrument</label>
+
+            <select id="instrumentSelect">
+                <option>Concert Grand Piano</option>
+                <option>Acoustic Piano</option>
+                <option>Electric Piano</option>
+                <option>Organ</option>
+            </select>
+
+            <p class="instrument-note">
+                Choose your preferred instrument while practising with the learning resources.
+            </p>
+        </aside>
+
+        <!-- CENTRE: SONG CONTENT -->
+        <section class="panel centre-panel">
+
+            <div class="song-heading">
+                <p class="song-number" id="detailSongNumber">SONG NO. 001</p>
+                <h2 class="song-title" id="songTitle">నా ప్రియమైన యేసు ప్రభు</h2>
+            </div>
+
+            <!-- TABS -->
+            <div class="tabs">
+                <button class="tab-button" data-tab="lyrics">
+                    <i class="bi bi-card-text"></i> Lyrics
+                </button>
+
+                <button class="tab-button active" data-tab="keyboard">
+                    <i class="bi bi-music-note-list"></i> Keyboard Notes
+                </button>
+
+                <button class="tab-button" data-tab="video">
+                    <i class="bi bi-play-circle"></i> Video
+                </button>
+            </div>
+
+            <!-- LYRICS -->
+            <div class="tab-content" id="lyrics">
+                <h3 class="content-heading">Song Lyrics</h3>
+
+                <div class="lyrics-box" id="songLyrics">
+                    Loading lyrics...
+                </div>
+
+                <div class="audio-box">
+                    <p><i class="bi bi-volume-up"></i> Listen to the Song</p>
+                    <audio id="songAudio" controls preload="metadata">
+                        Your browser does not support audio playback.
+                    </audio>
+                </div>
+            </div>
+
+            <!-- KEYBOARD NOTES -->
+            <div class="tab-content active" id="keyboard">
+                <h3 class="content-heading">Keyboard Notes</h3>
+
+                <div class="notes-image-wrapper">
+                    <img id="keyboardNotesImage" src="assets/images/keyboard-notes/song-01.png"
+                        alt="Keyboard notes for selected song">
+                </div>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="tab-content" id="video">
+                <h3 class="content-heading">Video Tutorial</h3>
+
+                <div class="video-wrapper">
+                    <video id="tutorialVideo" controls preload="metadata">
+                        Your browser does not support video playback.
+                    </video>
+                </div>
+
+                <p class="video-caption">
+                    Watch the tutorial and practise the song using the keyboard notes.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- RIGHT: OPTIONS -->
+        <aside class="panel side-options">
+            <h3><i class="bi bi-sliders"></i> Tools</h3>
+
+            <button class="option-button" onclick="showOption('Settings')">
+                <i class="bi bi-gear"></i> Settings
+            </button>
+
+            <button class="option-button" onclick="showOption('Recorder')">
+                <i class="bi bi-record-circle"></i> Recorder
+            </button>
+
+            <button class="option-button" onclick="toggleMetronome()">
+                <i class="bi bi-stopwatch"></i>
+                <span id="metronomeButtonText">Metronome: Off</span>
+            </button>
+
+            <p class="option-description">
+                Use the practice tools while learning. The virtual piano below can be played using your keyboard.
+            </p>
+        </aside>
+
+    </main>
+
+    <!-- VIRTUAL PIANO -->
+    <section class="piano-panel">
+
+        <div class="piano-header">
+            <h3><i class="bi bi-music-note"></i> Virtual Piano</h3>
+            <p>Use your computer keyboard to practise.</p>
+        </div>
+
+        <div class="piano" id="virtualPiano">
+            <div class="piano-inner" id="pianoInner"></div>
+        </div>
+
+        <p class="piano-hint">
+            White keys: Q W E R T Y U I O P Z X C V B N M , . /
+            <br>
+            Black keys: 2 3 5 6 7 9 0 S D F H J L ; '
+        </p>
+
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="optionModal">
+        <div class="modal">
+            <h3 id="modalTitle">Practice Tool</h3>
+            <p id="modalMessage"></p>
+            <button class="modal-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        © <span id="currentYear"></span> Songs of Zion. All Rights Reserved.
+    </footer>
+
+    <script>
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // SONG DATABASE
+            const songs = {
+
+                1: {
+                    title: "నా ప్రియమైన యేసు ప్రభు",
+                    lyrics: `పల్లవి:
+నా ప్రియమైన యేసు ప్రభు – వేలాది స్తోత్రములు
+నీవిచ్చిన రక్షణకై దేవా – స్తోత్రము స్తోత్రములు
+నీవు చేసిన ఉపకారములకై దేవా – స్తోత్రము స్తోత్రములు ||నా ప్రియమైన||
+
+చరణము - 1:
+ఆపద దినములలో ఉపకారముకై – నా ప్రభుని తలచితిని (2)
+దేవా నీ దయ తోడనే – నాథా – ఆశ్రయం పొందితిని (2) ||నా ప్రియమైన||
+
+చరణము - 2:
+ఒక క్షణ సమయములో – నశించు నా జీవితం (2)
+నా హృదయం మార్చితివి – దేవా – కృపతోనే జీవించుటకై (2) ||నా ప్రియమైన||
+
+చరణము - 3:
+లోకపు పాపములో – నే పాపిగా జీవించితిని (2)
+శుద్ధ హృదయమిచ్చావు – దేవా – నిన్ను నే దర్శించుటకై (2) ||నా ప్రియమైన||
+
+చరణము - 4:
+ఈ దినమునే పాడుట – నీ వలెనే యేసు ప్రభు (2)
+ఎల్లప్పుడు నీ పాడెదన్ – దేవా – నాయందు వసియించుము (2) ||నా ప్రియమైన||
+
+చరణము - 5:
+మందిర సమృద్ధిని – నీ ప్రజల సహవాసమును (2)
+నీ సన్నిధి ఆనందమును – దేవా – కృపతోనే నొసగితివి (2) ||నా ప్రియమైన||`
+                },
+
+                2: {
+                    title: "దూత గణములెల్ల ఆరాధించిరిగా",
+                    lyrics: `పల్లవి:
+దూత గణములెల్ల ఆరాధించిరిగా – పరిశుద్ధుడు సైన్యముల యెహోవని
+ఇహపరములలో ఆయన మహిమ – నిండియున్నదని గానము చేసిరి
+
+చరణం 1:
+నిష్కళంకమైనది నీ కనుదృష్టి – నీవు చూడలేవుగా దుష్టత్వమును
+దూరస్థులమైన మమ్ము నీ రక్తముతో – చేరదీసి చేర్చుకొన్న స్వామి స్తోత్రము
+
+చరణం 2:
+పాపముతో పతనమైన నా దేహమును – పరిశుద్ధ పరచితివి నీ ఆత్మతో
+పరమ నివాసమున ప్రవేశించుటకు – నిరంతరము క్రీస్తు నందు నిలిపితివి
+
+చరణం 3:
+ధైర్యముగా పరిశుద్ధ స్థలమునందు – చేరెదము యేసు క్రీస్తు రక్తం ద్వారా
+మహిమ ఘనత ప్రభావములు నీకే – యుగయుగములు సమర్పింతుము ఆమెన్`
+                },
+
+                3: {
+                    title: "నీ ప్రియ ప్రభుని సేవకై – అర్పించుకో నీవే",
+                    lyrics: `పల్లవి:
+నీ ప్రియ ప్రభుని సేవకై – అర్పించుకో నీవే
+పవిత్ర ప్రజలైన మీరు – సేవించుడాయననే (2)
+
+1. అంధకార జీవితమునకు – వెలుగు తెచ్చెను తానే (2)
+ఆ వెలుగు ద్వారానే – నూతన మార్గము కలిగె (2)
+సజీవ బలిగా నర్పించు – నీ జీవితమాయనకే (2) ||నీ ప్రియ||
+
+2. తప్పిపోతివి గతమందు – తప్పు దారిని నడిచితివి (2)
+తన ప్రేమా హస్తమే – నిన్ను కాపాడి తెచ్చెను (2)
+యెంతై స్మరియించు నీవు – వింతైన తన ప్రేమన్ (2) ||నీ ప్రియ||
+
+3. ఓ ప్రియుడా తలచితివా – నీ జన్మమే పాపమని (2)
+ప్రభువే తన రక్తముతో – నీ పాపము క్షమియించె (2)
+నీ యుల్లము ఆయన కాలయమే – జ్ఞాపకముంచుకొనుము (2) ||నీ ప్రియ||
+
+4. యెవరతని సేవించెదరో – ఫలమొందెదరంతమందు (2)
+ఇతరులకు లేనట్టి – ఆ ఘనతను నీ కిచ్చె (2)
+కృతజ్ఞుడవై కొనియాడు – ప్రభు పాద సన్నిధిని (2) ||నీ ప్రియ||`
+                },
+
+                4: {
+                    title: "సీయోను పాటలు సంతోషముగ",
+                    lyrics: `పల్లవి:
+సీయోను పాటలు సంతోషముగ
+పాడుచు సీయోను వెళ్ళుదుము (2)
+
+1. లోకాన శాశ్వతానందమేమియు - లేదని చెప్పెను ప్రియుడేసు (2)
+పొందవలె నీ లోకము నందు - కొంతకాలమెన్నో శ్రమలు (2)
+
+2. ఐగుప్తును విడిచినట్టి మీరు - అరణ్యవాసులె యీ ధరలో
+నిత్యనివాసము లేదిలలోన - నేత్రాలు కానానుపై నిలుపుడి
+
+3. మారను పోలిన చేదైన స్థలముల ద్వారా పోవలసియున్ననేమి
+నీ రక్షకుండగు యేసే నడుపును - మారని తనదు మాటనమ్ము
+
+4. ఐగుప్తు ఆశలనన్నియు విడిచి - రంగుగ యేసుని వెంబడించి
+పాడైన కోరహు పాపంబు మాని - విధేయులై విరాజిల్లుడి
+
+5. ఆనందమయ పరలోకంబు మనది - అక్కడ నుండి వచ్చు నేసు
+సీయోను గీతము సొంపుగ కలిసి - పాడెదము ప్రభుయేసుకు జై`
+                },
+
+                5: {
+                    title: "పొందితిని నేను ప్రభువా నీ నుండి",
+                    lyrics: `పల్లవి:
+పొందితిని నేను ప్రభువా నీ నుండి
+ప్రతి శ్రేష్ఠయీవిని ఈ భువియందు (2)
+
+చరణము - 1:
+జీవిత యాత్రలో సాగి వచ్చితిని (2)-ఇంతవరకు నాకు తోడై యుండి (2)
+ఎబినేజరువైయున్న ఓ యేసు ప్రభువా (2)
+నా రక్షణ కర్తవు నీవైతివి (2)
+
+చరణము - 2:
+గాలి తుఫానులలో నుండి వచ్చితిని - అంధకార శక్తుల ప్రభావము నుండి
+నీ రెక్కల చాటున నను దాచితివయ్యా
+నీవే ఆశ్రయ దుర్గంబైవితివి
+
+చరణము - 3:
+కష్టదుఃఖంబులు నాకు కలుగగా - నను చేరదీసి ఓదార్చితివే
+భయభీతి నిరాశలయందున ప్రభువా
+బహుగా ధైర్యంబు నా కొసగితివి
+
+చరణము - 4:
+నాదేహమందున ముల్లు నుంచితివి - సాతానుని దూతగా నలుగగొట్టన్
+వ్యాధి బాధలు బలహీనతలందు
+నీ కృపను నాకు దయచేసితివి
+
+చరణము - 5:
+నీ ప్రేమ చేత ధన్యుడనైతిని - కృతజ్ఞతాస్తుతులు చెల్లించెదను
+కష్ట పరీక్షల యందున ప్రభువా
+జయజీవితము నాకు నేర్పించితివి`
+                },
+
+                6: {
+                    title: "మేము భయపడము – ఇక మేము భయపడము",
+                    lyrics: `పల్లవి:
+మేము భయపడము ఇక మేము భయపడము (1)
+ఏకీడు రాదని యేసే చెప్పెను మాకు (2)
+
+చరణము - 1:
+దైవభ్రష్టులమైన మమ్ము - దివ్యంపుగా రక్షించె (2)
+దివారాత్రులు దేవుడే కాయును (1)
+
+చరణము - 2:
+శత్రుకోటి మమ్ము జుట్టన్ - పాతాళము మ్రింగ జూడన్
+నిత్యుడు యేసు నిత్యము కాయును
+
+చరణము - 3:
+అగ్ని పరీక్షల యందు - వాగ్దానమిచ్చె మాతోనుండ
+యే ఘడియైనను విడువక కాయును
+
+చరణము - 4:
+బలమైన ప్రభు హస్తములు - వలయము వలె మమ్ము జుట్టి
+పలు విధములుగా కాపాడుమమ్ము
+
+చరణము - 5:
+కునుకడు మనదేవుడు - ఎన్నడు నిద్రించడు
+కనుపాపగ మము కాపాడునెప్పుడు
+
+చరణము - 6:
+జీవిత కష్టనష్టములు - ఆవరించి దుఃఖపరచ
+దేవుడొసంగిన ఈవుల నెంచుచు
+
+చరణము - 7:
+ఇహమందు మన శ్రమలన్ని - మహిమకు మార్చెడు ప్రభున్
+మహిమపరచి మ్రొక్కెదమిలలో`
+                },
+
+                7: {
+                    title: "స్వఛ్చంద సీయోను వాసి",
+                    lyrics: `పల్లవి:
+స్వఛ్చంద సీయోను వాసి
+సర్వాధికారి – కస్తూరి పూరాసి (2)
+వర్తమాన భూత భవి-ష్యత్కాల వాసి (2)
+అల్ఫా ఒమేగ తానే (2)
+ఆద్యంతము మన యేసే (2) ||స్వఛ్చంద||
+
+చరణము - 1:
+ఇదిగో నేనొక నిబంధనను
+అద్భుతముగ జేతున్ – నీ ప్రజలందరి యెదుట (2)
+పరిశోధింపజాలని మహా – పనులెల్ల ప్రభువే (2)
+లెక్క లేని యద్భుతముల్ (2)
+మక్కువతో చేయువాడు (2) ||స్వఛ్చంద||
+
+చరణము - 2:
+సంగీతం నాదముల తోడ
+సీయోను పురము – సొంపుగను చేరితిమి (2)
+శాశ్వత సంతోషము మా – శిరములపై వెలసెన్ (2)
+దుఃఖము నిట్టూర్పును పోయెన్ (2)
+మిక్కిలి ఆనందము కల్గెన్ (2) ||స్వఛ్చంద||
+
+చరణము - 3:
+నీలముల పునాదులు వేసి
+నీలాంజనములతో – మాణిక్య మణులతో (2)
+సువర్ణ శునీయముల – సూర్య కాంతముతో (2)
+ప్రశస్త రత్నములతో (2)
+ప్రవిమలముగా నిను గట్టెదను (2) ||స్వఛ్చంద||
+
+చరణము - 4:
+సుమముల హారము
+సంతోషానంద తైలము నీదే – స్తుతి వస్త్రమును నీదే (2)
+ఉల్లాస వస్త్రంబు నీదే – విడుదలయి నీదే (2)
+హిత వత్సరము విముక్తి (2)
+ఆత్మాభిషేకము నీదే (2) ||స్వఛ్చంద||
+
+చరణము - 5:
+జలములలో బడి దాటునప్పుడు
+బలమై యుండెదను – నీ తోడై యుండెదను (2)
+నదులలో వెళ్లునప్పుడు – నీపై పారవు (2)
+అగ్ని మధ్యను నడచినను (2)
+జ్వాలలు నిను కాల్చగ లేవు (2) ||స్వఛ్చంద||
+
+చరణము - 6:
+ఇత్తడి తలుపుల బగుల గొట్టెద
+నినుప ఘడియలను – విడగొట్టెదను నేను (2)
+అంధకార స్థలములలో ను-న్నట్టి నిధులను (2)
+రహస్యములో మరుగైన (2)
+ధనమును నీ కొసంగెదను (2) ||స్వఛ్చంద||
+
+చరణము - 7:
+గర్భమున పుట్టినది మొదలు
+తల్లి యొడిలోన – కూర్చుండినది మొదలు (2)
+నేను చంక బెట్టుకొన్న – నాదు ప్రజలారా (2)
+ముదిమి వచ్చుఁ వరకు నిన్ను (2)
+ఎత్తుకొను వాడను నేనే (2) ||స్వఛ్చంద||`
+                },
+
+                8: {
+                    title: "నమ్మకమైన నా ప్రభు",
+                    lyrics: `పల్లవి:
+నమ్మకమైన నా ప్రభు
+నిన్ను నే స్తుతింతును - నిన్ను నే స్తుతింతును (1)
+
+చరణము - 1:
+కరుణతోడ - పిల్చియు - స్థిరపరచి కాపాడిన (2)
+స్థిరపరచిన నా ప్రభున్ - పొగడి - నే స్తుతింతును (2)
+
+చరణము - 2:
+ఎన్నోసార్లు నీ కృపన్ - విడచియుంటినో ప్రభు
+మన్ననతోడ - నీదరిన్ చేర్చినన్ క్షమించితివి
+
+చరణము - 3:
+కృంగియుండు వేళలో - పైకి లేవ నెత్తితివి
+భంగ పర్చు - సైతానున్ - గెల్చి విజయమిచ్చితివి
+
+చరణము - 4:
+నాకాశ్రయ శైలమై - కోటగా నీవుంటివి
+ప్రాకారంపు యింటివై - నన్ను దాచి యుంచితివి
+
+చరణము - 5:
+సత్యసాక్షివైయుండి - నమ్మదగినవాడవై
+నిత్యుడౌ మా దేవుడా - ఆమెనంచు పాడె`
+                }
+
+            };
+
+
+            // GET SONG NUMBER FROM URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const songNumber = Number(urlParams.get("song")) || 1;
+            const selectedSong = songs[songNumber];
+
+            // HTML ELEMENTS
+            const songNumberElement = document.getElementById("detailSongNumber");
+            const songTitleElement = document.getElementById("songTitle");
+            const songLyricsElement = document.getElementById("songLyrics");
+            const songAudioElement = document.getElementById("songAudio");
+            const keyboardNotesImage = document.getElementById("keyboardNotesImage");
+            const tutorialVideo = document.getElementById("tutorialVideo");
+
+            // LOAD SELECTED SONG
+            if (selectedSong) {
+
+                const fileNumber = String(songNumber).padStart(2, "0");
+
+                songNumberElement.textContent =
+                    `SONG NO. ${String(songNumber).padStart(3, "0")}`;
+
+                songTitleElement.textContent = selectedSong.title;
+                songLyricsElement.textContent = selectedSong.lyrics;
+
+                songAudioElement.src = `/audio/song-${fileNumber}.mp3`;
+
+                keyboardNotesImage.src =
+                    `assets/images/keyboard-notes/song-${fileNumber}.png`;
+
+                keyboardNotesImage.alt =
+                    `Keyboard notes for ${selectedSong.title}`;
+
+                tutorialVideo.src = `videos/song-${fileNumber}.mp4`;
+
+                songAudioElement.load();
+                tutorialVideo.load();
+
+            } else {
+
+                songNumberElement.textContent = "SONG NOT FOUND";
+                songTitleElement.textContent = "Song Not Found";
+                songLyricsElement.textContent =
+                    "The requested song could not be found.";
+
+                songAudioElement.hidden = true;
+                keyboardNotesImage.hidden = true;
+                tutorialVideo.hidden = true;
+            }
+
+
+            // TAB SWITCHING
+            const tabButtons = document.querySelectorAll(".tab-button");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            tabButtons.forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    const selectedTab = button.dataset.tab;
+
+                    tabButtons.forEach(btn =>
+                        btn.classList.remove("active")
+                    );
+
+                    tabContents.forEach(content =>
+                        content.classList.remove("active")
+                    );
+
+                    button.classList.add("active");
+
+                    document.getElementById(selectedTab)
+                        .classList.add("active");
+
+                });
+
+            });
+
+
+            // CURRENT YEAR
+            document.getElementById("currentYear").textContent =
+                new Date().getFullYear();
+
+
+            // VIRTUAL PIANO
+            const pianoInner = document.getElementById("pianoInner");
+
+            // WHITE KEY LABELS
+            const whiteKeys = [
+                "q", "w", "e", "r", "t",
+                "y", "u", "i", "o", "p",
+                "z", "x", "c", "v", "b",
+                "n", "m", ",", ".", "/"
+            ];
+
+            // BLACK KEY LABELS
+            const blackKeys = [
+                "2", "3", "5", "6", "7",
+                "9", "0", "s", "d", "f",
+                "h", "j", "l", ";", "'"
+            ];
+
+            // BLACK KEY POSITIONS
+            const blackKeyPositions = [
+                3.2, 9.0, 18.0, 23.8, 29.5,
+                38.3, 44.1, 52.9, 58.7, 64.4,
+                73.2, 79.0, 87.8, 93.5, 99.2
+            ];
+
+            // CREATE WHITE KEYS
+            whiteKeys.forEach(function (key) {
+
+                const pianoKey = document.createElement("div");
+
+                pianoKey.className = "white-key piano-key";
+                pianoKey.textContent = key;
+                pianoKey.dataset.key = key;
+
+                pianoKey.addEventListener("click", function () {
+                    highlightKey(pianoKey);
+                });
+
+                pianoInner.appendChild(pianoKey);
+
+            });
+
+            // CREATE BLACK KEYS
+            blackKeys.forEach(function (key, index) {
+
+                const pianoKey = document.createElement("div");
+
+                pianoKey.className = "black-key piano-key";
+                pianoKey.textContent = key;
+                pianoKey.dataset.key = key;
+
+                pianoKey.style.left =
+                    blackKeyPositions[index] + "%";
+
+                pianoKey.addEventListener("click", function () {
+                    highlightKey(pianoKey);
+                });
+
+                pianoInner.appendChild(pianoKey);
+
+            });
+
+            // HIGHLIGHT PRESSED KEY
+            function highlightKey(keyElement) {
+
+                keyElement.classList.add("active");
+
+                setTimeout(function () {
+                    keyElement.classList.remove("active");
+                }, 250);
+
+            }
+
+            // COMPUTER KEYBOARD SUPPORT
+            document.addEventListener("keydown", function (event) {
+
+                if (
+                    event.target.tagName === "INPUT" ||
+                    event.target.tagName === "TEXTAREA" ||
+                    event.target.tagName === "SELECT"
+                ) {
+                    return;
+                }
+
+                const key = event.key.toLowerCase();
+
+                const pianoKey = document.querySelector(
+                    `.piano-key[data-key="${CSS.escape(key)}"]`
+                );
+
+                if (pianoKey) {
+                    highlightKey(pianoKey);
+                }
+
+            });
+
+        });
+
+
+        // OPTIONS MODAL
+        function showOption(option) {
+
+            const modal = document.getElementById("optionModal");
+            const title = document.getElementById("modalTitle");
+            const message = document.getElementById("modalMessage");
+
+            title.textContent = option;
+
+            if (option === "Settings") {
+                message.textContent =
+                    "Practice settings can be added here. The current learning page keeps your song, lyrics, notes and video resources together.";
+            }
+
+            if (option === "Recorder") {
+                message.textContent =
+                    "The recorder feature is not connected yet. We can add recording and playback functionality in a later step.";
+            }
+
+            modal.classList.add("show");
+
+        }
+
+
+        function closeModal() {
+            document.getElementById("optionModal").classList.remove("show");
+        }
+
+
+        // METRONOME
+        let metronomeInterval = null;
+        let metronomeOn = false;
+
+        function toggleMetronome() {
+
+            const buttonText =
+                document.getElementById("metronomeButtonText");
+
+            if (!metronomeOn) {
+
+                metronomeOn = true;
+
+                buttonText.textContent = "Metronome: On";
+
+                metronomeInterval = setInterval(function () {
+
+                    const sound = new Audio(
+                        "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA="
+                    );
+
+                    sound.play().catch(function () { });
+
+                }, 1000);
+
+            } else {
+
+                metronomeOn = false;
+
+                clearInterval(metronomeInterval);
+                metronomeInterval = null;
+
+                buttonText.textContent = "Metronome: Off";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

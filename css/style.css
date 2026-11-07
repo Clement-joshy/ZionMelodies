@@ -1,0 +1,871 @@
+/* =========================================
+   ZIONMELODIES | HOMEPAGE DESIGN
+   HTML + CSS + JavaScript + Bootstrap 5
+========================================= */
+
+:root {
+    --navy: #082847;
+    --navy-deep: #041b31;
+    --blue: #0798e8;
+    --blue-dark: #0879bb;
+    --gold: #d9a441;
+    --green: #13a58b;
+    --purple: #8050df;
+    --white: #ffffff;
+    --light-bg: #f2f8fd;
+    --text: #17395c;
+    --muted: #536d89;
+    --border: #dcebf6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: "DM Sans", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.main-navbar {
+    position: relative;
+    z-index: 10;
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid #e8f0f7;
+    box-shadow: 0 3px 18px rgba(8, 40, 71, 0.06);
+}
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: var(--navy);
+}
+
+.brand-logo:hover {
+    color: var(--navy);
+}
+
+.brand-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 48px;
+    color: var(--blue);
+    font-size: 2.5rem;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    color: var(--navy);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.brand-text>span {
+    display: inline;
+    color: var(--blue);
+}
+
+.brand-text small {
+    margin-top: 5px;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.navbar-nav {
+    gap: 5px;
+}
+
+.nav-link {
+    position: relative;
+    padding: 13px 12px !important;
+    color: var(--navy);
+    font-size: 0.77rem;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--blue-dark);
+}
+
+.nav-link.active::after {
+    position: absolute;
+    right: 12px;
+    bottom: 4px;
+    left: 12px;
+    height: 2px;
+    background: var(--gold);
+    content: "";
+}
+
+.search-link {
+    font-size: 1.15rem;
+}
+
+.login-btn {
+    padding: 10px 23px;
+    border-radius: 30px;
+    background: var(--blue);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(7, 152, 232, 0.18);
+}
+
+.login-btn:hover {
+    background: var(--blue-dark);
+    color: white;
+}
+
+.navbar-toggler {
+    border-color: var(--border);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(7, 152, 232, 0.16);
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    min-height: 390px;
+    overflow: hidden;
+
+    /* Place hero-piano.jpg inside assets/images */
+    background-color: #dceefb;
+    background-image:
+        linear-gradient(90deg,
+            rgba(246, 251, 255, 0.97) 0%,
+            rgba(246, 251, 255, 0.89) 32%,
+            rgba(246, 251, 255, 0.42) 54%,
+            rgba(8, 40, 71, 0.04) 100%),
+        url("../assets/images/hero-piano.jpg");
+
+    background-position: center, center 57%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 38px;
+    padding-bottom: 38px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 13px;
+    color: var(--blue-dark);
+    font-size: 0.77rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.hero-label span {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.hero-section h1 {
+    margin: 0;
+    color: var(--navy);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.5rem, 4.4vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -1px;
+}
+
+.worship-word {
+    display: block;
+    margin-top: -1px;
+    color: var(--blue);
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(3.8rem, 6vw, 5.3rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.hero-description {
+    max-width: 440px;
+    margin: 12px 0 17px;
+    color: var(--navy);
+    font-size: 0.96rem;
+    line-height: 1.65;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+
+.explore-btn,
+.keyboard-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 21px;
+    border-radius: 30px;
+    font-size: 0.83rem;
+    font-weight: 800;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.explore-btn {
+    background: linear-gradient(110deg, #0784c9, #0872ae);
+    color: white;
+}
+
+.explore-btn:hover {
+    transform: translateY(-2px);
+    background: var(--navy);
+    color: white;
+}
+
+.keyboard-btn {
+    border: 1.5px solid var(--blue-dark);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--navy);
+}
+
+.keyboard-btn:hover {
+    transform: translateY(-2px);
+    background: var(--navy);
+    color: white;
+}
+
+.hero-verse {
+    padding-top: 0;
+    text-align: center;
+}
+
+.verse-text {
+    color: var(--navy);
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1.4rem, 2.3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.verse-reference {
+    color: var(--navy);
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.floating-notes {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 35px;
+    color: rgba(7, 152, 232, 0.7);
+    font-size: 2rem;
+}
+
+/* =========================================
+   EXPLORE SECTION
+========================================= */
+
+.explore-section {
+    padding: 28px 0 24px;
+    background:
+        radial-gradient(ellipse at top,
+            #ffffff 0%,
+            #f2f9ff 70%,
+            #edf6fd 100%);
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: var(--blue-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.section-label span {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.section-heading h2 {
+    margin-bottom: 5px;
+    color: var(--navy);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.8rem, 3.3vw, 2.55rem);
+    font-weight: 800;
+}
+
+.section-heading>p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.91rem;
+}
+
+.feature-row {
+    align-items: stretch;
+}
+
+/* =========================================
+   FEATURE CARDS
+========================================= */
+
+.feature-card {
+    position: relative;
+    height: 100%;
+    min-height: 245px;
+    overflow: hidden;
+    border: 1px solid #e3eef7;
+    border-radius: 13px;
+    background: white;
+    box-shadow: 0 6px 20px rgba(8, 40, 71, 0.07);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(8, 40, 71, 0.13);
+}
+
+.feature-card-content {
+    position: relative;
+    z-index: 2;
+    min-height: 172px;
+    padding: 18px 20px 14px;
+    background: linear-gradient(180deg,
+            #ffffff 70%,
+            rgba(255, 255, 255, 0.95));
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.7rem;
+}
+
+.blue-icon {
+    background: linear-gradient(145deg, #16a5f7, #087bda);
+}
+
+.green-icon {
+    background: linear-gradient(145deg, #24c3a7, #079b87);
+}
+
+.purple-icon {
+    background: linear-gradient(145deg, #a06bfa, #7139db);
+}
+
+.feature-card h3 {
+    margin-bottom: 4px;
+    color: var(--navy);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.23rem;
+    font-weight: 800;
+}
+
+.feature-card p {
+    max-width: 240px;
+    margin-bottom: 6px;
+    color: #385b7d;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.feature-link {
+    display: inline-block;
+    color: var(--blue-dark);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.feature-link:hover {
+    color: var(--navy);
+}
+
+.keyboard-card .feature-link {
+    color: #078f78;
+}
+
+.audio-card .feature-link {
+    color: var(--purple);
+}
+
+/* Card images */
+
+.feature-image {
+    position: relative;
+    height: 84px;
+    margin-top: -1px;
+    background-position: center 58%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.feature-image::before {
+    position: absolute;
+    top: -13px;
+    right: -5%;
+    left: -5%;
+    height: 27px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: white;
+    content: "";
+}
+
+.songs-image {
+    border-top: 4px solid #20a7f5;
+    background-image: url("../assets/images/songs-library.jpg");
+}
+
+.keyboard-image {
+    border-top: 4px solid #27c4a5;
+    background-image: url("../assets/images/keyboard.jpg");
+}
+
+.audio-image {
+    border-top: 4px solid #a477f7;
+    background-image: url("../assets/images/audio-learning.jpg");
+}
+
+/* =========================================
+   WORSHIP QUOTE
+========================================= */
+
+.worship-quote {
+    padding-top: 18px;
+}
+
+.worship-quote p {
+    margin-bottom: 4px;
+    color: var(--navy);
+    font-family: "Dancing Script", cursive;
+    font-size: 1.65rem;
+    font-weight: 700;
+}
+
+.worship-quote span {
+    color: var(--blue-dark);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    overflow: hidden;
+    border-top: 3px solid var(--gold);
+    background: linear-gradient(120deg,
+            #082847,
+            #03172b);
+    color: white;
+}
+
+.footer-main {
+    padding-top: 25px;
+    padding-bottom: 23px;
+}
+
+.footer-brand {
+    margin-bottom: 10px;
+}
+
+.footer-brand .brand-symbol {
+    color: #47b9f7;
+}
+
+.footer-brand .brand-text {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.footer-brand .brand-text>span {
+    color: #45b8f5;
+}
+
+.footer-brand .brand-text small {
+    font-size: 0.48rem;
+}
+
+.footer-description {
+    margin-top: 4px;
+    color: #d2e1ef;
+    font-size: 0.77rem;
+    line-height: 1.6;
+}
+
+.site-footer h4 {
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.footer-links a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 5px;
+    color: #e1eaf3;
+    font-size: 0.78rem;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    color: var(--gold);
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #e1eaf3;
+    font-size: 0.77rem;
+    overflow-wrap: anywhere;
+}
+
+.footer-contact i {
+    color: white;
+    font-size: 1rem;
+}
+
+.footer-contact .contact-subtext {
+    margin-left: 24px;
+    margin-top: -7px;
+    color: #a9bfd4;
+    font-size: 0.7rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 17px;
+    margin-top: 14px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1rem;
+}
+
+.newsletter-section>p {
+    color: #d2e1ef;
+    font-size: 0.78rem;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #dce7f2;
+    border-radius: 8px;
+    background: white;
+}
+
+.newsletter-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: none;
+    outline: none;
+    color: var(--navy);
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 0.78rem;
+}
+
+.newsletter-form button {
+    min-width: 42px;
+    border: none;
+    background: var(--gold);
+    color: white;
+    font-size: 1.1rem;
+    transition: background 0.2s ease;
+}
+
+.newsletter-form button:hover {
+    background: #bb8b31;
+}
+
+.newsletter-message {
+    min-height: 18px;
+    margin-top: 7px;
+    font-size: 0.75rem;
+}
+
+.footer-bottom {
+    padding: 12px 0;
+    border-top: 1px solid rgba(217, 164, 65, 0.35);
+    background: rgba(0, 0, 0, 0.13);
+}
+
+.footer-bottom p {
+    color: #d2e1ef;
+    font-size: 0.72rem;
+}
+
+.glory-text {
+    color: var(--gold) !important;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.3rem !important;
+    font-weight: 700;
+}
+
+.glory-text span {
+    font-family: Georgia, serif;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (min-width: 1200px) {
+    .hero-section {
+        min-height: 390px;
+    }
+
+    .feature-card {
+        min-height: 245px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .main-navbar .navbar-collapse {
+        padding: 12px 0 5px;
+    }
+
+    .navbar-nav {
+        align-items: stretch !important;
+    }
+
+    .nav-link {
+        padding: 11px 4px !important;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .login-btn {
+        display: inline-block;
+        width: fit-content;
+        margin-top: 7px;
+    }
+
+    .hero-section {
+        min-height: 400px;
+        background-position: center, 60% center;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .hero-verse {
+        padding-top: 25px;
+    }
+
+    .feature-card-content {
+        min-height: 185px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .brand-symbol {
+        width: 34px;
+        font-size: 2rem;
+    }
+
+    .brand-text {
+        font-size: 1.35rem;
+    }
+
+    .hero-section {
+        min-height: 0;
+        background-image:
+            linear-gradient(90deg,
+                rgba(246, 251, 255, 0.96),
+                rgba(246, 251, 255, 0.82)),
+            url("../assets/images/hero-piano.jpg");
+        background-position: center, 63% center;
+    }
+
+    .hero-container {
+        padding-top: 44px;
+        padding-bottom: 38px;
+    }
+
+    .hero-label {
+        gap: 7px;
+        font-size: 0.63rem;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-label span {
+        width: 18px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        letter-spacing: -0.6px;
+    }
+
+    .worship-word {
+        font-size: clamp(3.4rem, 14vw, 4.5rem);
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    .hero-verse {
+        padding-top: 32px;
+    }
+
+    .floating-notes {
+        margin-top: 18px;
+    }
+
+    .explore-section {
+        padding-top: 28px;
+    }
+
+    .section-label {
+        gap: 7px;
+        font-size: 0.61rem;
+        letter-spacing: 1.6px;
+    }
+
+    .section-label span {
+        width: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.85rem;
+    }
+
+    .feature-card-content {
+        min-height: 172px;
+    }
+
+    .feature-image {
+        height: 105px;
+    }
+
+    .worship-quote p {
+        font-size: 1.45rem;
+    }
+
+    .footer-main {
+        padding-top: 28px;
+    }
+
+    .footer-bottom .container {
+        align-items: flex-start !important;
+        flex-direction: column;
+    }
+}
+
+/* Keyboard accessibility */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}

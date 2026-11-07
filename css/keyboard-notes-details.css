@@ -1,0 +1,118 @@
+/* Keyboard Note Details Section */
+.note-details-section {
+    min-height: 75vh;
+    padding: 60px 6%;
+    background: #f5f8fc;
+}
+
+/* Back Button */
+.back-to-notes {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #102b50;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.back-to-notes:hover {
+    color: #d5a642;
+}
+
+/* Main Details Card */
+.note-details-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Song Number */
+.note-song-number {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 18px;
+    color: #ffffff;
+    background: #102b50;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Song Title */
+.note-details-card h1 {
+    margin-bottom: 12px;
+    color: #102b50;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.note-description {
+    color: #777777;
+    font-size: 16px;
+}
+
+/* Section Headings */
+.details-heading {
+    margin: 35px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e5eaf1;
+    color: #102b50;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/* Keyboard Notes Image */
+.notes-image-container {
+    width: 100%;
+    padding: 15px;
+    background: #f5f8fc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.keyboard-note-image {
+    display: block;
+    max-width: 100%;
+    max-height: 750px;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Video Player */
+.video-container {
+    width: 100%;
+    overflow: hidden;
+    background: #000000;
+    border-radius: 12px;
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    max-height: 550px;
+    background: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .note-details-section {
+        padding: 35px 5%;
+    }
+
+    .note-details-card {
+        padding: 25px 18px;
+    }
+
+    .note-details-card h1 {
+        font-size: 24px;
+    }
+
+    .details-heading {
+        font-size: 20px;
+    }
+}

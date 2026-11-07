@@ -1,0 +1,87 @@
+.song-details-section {
+    min-height: 70vh;
+    padding: 60px 6%;
+    background: #f5f8fc;
+}
+
+.song-details-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.song-number {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 18px;
+    color: #ffffff;
+    background: #102b50;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.song-details-card h1 {
+    margin-bottom: 30px;
+    color: #102b50;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.lyrics-heading,
+.audio-heading {
+    margin: 25px 0 15px;
+    color: #102b50;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.song-lyrics {
+    padding: 25px;
+    background: #f5f8fc;
+    border-left: 4px solid #d5a642;
+    border-radius: 8px;
+    color: #333333;
+    font-size: 18px;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.song-audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.back-to-songs {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #102b50;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-to-songs:hover {
+    color: #d5a642;
+}
+
+@media (max-width: 576px) {
+    .song-details-section {
+        padding: 35px 5%;
+    }
+
+    .song-details-card {
+        padding: 25px 18px;
+    }
+
+    .song-details-card h1 {
+        font-size: 23px;
+    }
+
+    .song-lyrics {
+        font-size: 16px;
+    }
+}

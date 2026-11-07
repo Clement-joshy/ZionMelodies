@@ -1,0 +1,117 @@
+/* Keyboard Notes Page Header */
+.keyboard-header {
+    padding: 70px 20px;
+    background: #102b50;
+    color: #ffffff;
+    text-align: center;
+}
+
+.keyboard-header h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.keyboard-header p {
+    font-size: 17px;
+    margin-bottom: 0;
+    color: #e0e7f0;
+}
+
+/* Keyboard Notes Section */
+.keyboard-notes-section {
+    padding: 65px 0;
+    background: #f5f8fc;
+}
+
+.keyboard-intro {
+    margin-bottom: 40px;
+}
+
+.keyboard-intro h2 {
+    color: #102b50;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.keyboard-intro p {
+    color: #666666;
+    font-size: 16px;
+}
+
+/* Song Cards */
+.keyboard-card {
+    height: 100%;
+    padding: 30px 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5eaf1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.keyboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+.keyboard-card span {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 7px 15px;
+    background: #102b50;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.keyboard-card h3 {
+    min-height: 65px;
+    margin-bottom: 20px;
+    color: #102b50;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.keyboard-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #d5a642;
+    color: #102b50;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.keyboard-link:hover {
+    background: #102b50;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .keyboard-header {
+        padding: 50px 15px;
+    }
+
+    .keyboard-header h1 {
+        font-size: 29px;
+    }
+
+    .keyboard-notes-section {
+        padding: 45px 0;
+    }
+
+    .keyboard-intro h2 {
+        font-size: 25px;
+    }
+
+    .keyboard-card {
+        padding: 25px 18px;
+    }
+}

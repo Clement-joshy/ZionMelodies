@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Songs Library | ZionMelodies</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Existing Website CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Songs Page CSS -->
+    <link rel="stylesheet" href="css/songs.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg songs-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-name">Zion<span>Melodies</span></span>
+                <small>SONGS OF ZION</small>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#songsNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="songsNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="songs.html">SONGS</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="keyboard-notes.html">KEYBOARD NOTES</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link login-link" href="#login">
+                            <i class="bi bi-person-fill"></i> LOGIN
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- SONGS LIBRARY HEADER -->
+    <section class="songs-page-header">
+        <div class="container text-center">
+
+            <p class="songs-eyebrow">MUSIC • FAITH • WORSHIP</p>
+
+            <h1>Songs Library</h1>
+
+            <p>
+                Discover Telugu Christian songs, worship lyrics
+                and melodies in one place.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- SONGS LIBRARY -->
+    <section class="songs-library-section">
+        <div class="container">
+
+            <div class="songs-toolbar">
+
+                <div>
+                    <h2>Explore Songs</h2>
+                    <p>Find your favourite worship song.</p>
+                </div>
+
+                <div class="songs-search">
+                    <i class="bi bi-search"></i>
+
+                    <input type="search" id="songSearch" placeholder="Search by song number or title...">
+                </div>
+
+            </div>
+
+
+            <!-- SONG CARDS -->
+            <div class="row g-4" id="songsContainer">
+
+                <!-- SONG 1 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 001</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>నా ప్రియమైన యేసు ప్రభు</h3>
+                        <a href="song-details.html?song=1" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 2 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 002</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>హల్లెలుయా పాడెదా ప్రభు నిన్ను కొనియాడెదన్</h3>
+                        <a href="song-details.html?song=2" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 3 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 003</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>నా సర్వమైన ప్రభూ అర్పించుకొందు నీకై</h3>
+                        <a href="song-details.html?song=3" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 4 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 004</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>నీ స్వరము వినిపించు ప్రభువా</h3>
+                        <a href="song-details.html?song=4" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 5 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 005</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>పొందితిని నేను ప్రభువా నీ నుండి</h3>
+                        <a href="song-details.html?song=5" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 6 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 006</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>మేము భయపడము – ఇక మేము భయపడము</h3>
+                        <a href="song-details.html?song=6" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 7 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 007</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>స్వఛ్చంద సీయోను వాసి</h3>
+                        <a href="song-details.html?song=7" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SONG 8 -->
+                <div class="col-md-6 col-lg-4 song-item">
+                    <div class="song-card">
+                        <span class="song-number">SONG NO. 008</span>
+                        <div class="song-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h3>నమ్మకమైన నా ప్రభు</h3>
+                        <a href="song-details.html?song=8" class="view-lyrics-link">
+                            View Lyrics <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- NO SONGS FOUND -->
+            <div id="noSongsFound" class="no-songs-message" hidden>
+                <i class="bi bi-music-note-list"></i>
+                <h3>No Songs Found</h3>
+                <p>Try searching with another song number or title.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="songs-footer">
+        <div class="container text-center">
+            <h3>Zion<span>Melodies</span></h3>
+            <p>Sharing songs of faith, hope and worship.</p>
+            <small>© <span id="currentYear"></span> ZionMelodies. All rights reserved.</small>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/songs.js"></script>
+
+</body>
+
+</html>
